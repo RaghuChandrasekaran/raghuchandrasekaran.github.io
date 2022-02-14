@@ -1,1 +1,74 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Roopa Varma TP</title>
+  <link rel='stylesheet' href='https://www.coding-dude.com/fonts/cyberspace1-styles.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="stars"></div>
+
+<div class="centered"><span class="cyberspace" data-text="ROOPA VARMA TP">ROOPA VARMA TP</span>
+  <span class="cyberspace" data-text="RACEWAY">DCA DISTINCTION</span>
+  
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="extrude">
+      
+      <feMorphology operator="erode" radius="0" in="SourceGraphic" result="erode" />
+      <feMorphology operator="erode" radius="2" in="SourceGraphic" result="erode1" />
+      <feMorphology operator="erode" radius="3" in="SourceGraphic" result="erode2" />
+      <feMorphology operator="erode" radius="4" in="SourceGraphic" result="erode3" />
+      <feMorphology operator="erode" radius="6" in="SourceGraphic" result="erode4" />
+       <feComposite in="erode" in2="erode1" operator="out" result="main"/> 
+      <feComposite in="erode1" in2="erode2" operator="out" result="stroke1"/>
+      <feComposite in="erode2" in2="erode3" operator="out" result="stroke2"/>
+      <feComposite in="erode3" in2="erode4" operator="out" result="stroke3"/>
+      <feGaussianBlur in="stroke1" stdDeviation="0 10" result="stroke1-blur" />
+      <feBlend in="stroke1-blur" mode="screen" result="stroke1-blur-blend"></feBlend>
+      <feGaussianBlur in="stroke2" stdDeviation="0 10"  />
+      <feOffset dx="0" dy="10" result="stroke2-blur"/>
+      <feBlend in="stroke2-blur" mode="screen" result="stroke2-blur-blend"></feBlend>
+      <feGaussianBlur in="stroke3" stdDeviation="0 25"  />
+      <feOffset dx="0" dy="20" result="stroke3-blur"/>
+      <feBlend in="stroke3-blur" mode="screen" result="stroke3-blur-blend"></feBlend>
+      
+      <feFlood result="floodFill" flood-color="rgba(0,0,0,0.7)" flood-opacity="1"/>
+      <feComposite in="floodFill" in2="erode2" operator="in" result="black"/> 
+      <feBlend in="black" mode="screen" result="letterInside"></feBlend>
+      <feMerge>
+        <feMergeNode in="stroke1-blur-blend"></feMergeNode>
+        <feMergeNode in="stroke2-blur-blend"></feMergeNode>
+      <feMergeNode in="stroke3-blur-blend"></feMergeNode>
+        <feMergeNode in="main"></feMergeNode>
+        <feMergeNode in="letterInside"></feMergeNode>
+      </feMerge>
+      
+    </filter>
+    <filter id="extrude1">
+      
+      <feOffset dx="1" dy="3" in="SourceGraphic" result="L1"/>
+      <feMorphology operator="erode" radius="1" in="L1" result="L2" />
+      <feOffset dx="1" dy="10" in="L2" result="L3"/>
+
+ 
+ <feMerge result="trail">
+   <feMergeNode in="L1" />
+   <feMergeNode in="L3" />
+</feMerge>
+<feGaussianBlur in="trail" stdDeviation="3 0" result="trail-blur" />
+<feMerge>
+   <feMergeNode in="trail-blur" />
+   <feMergeNode in="SourceGraphic" />
+</feMerge>
+  </filter>
+  </defs>
+</svg>
+<!-- partial -->
+  <a id="secretHeart" href="./love.html">❤️</a>
+</body>
+</html>
